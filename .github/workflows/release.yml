@@ -1,0 +1,47 @@
+
+name: Release
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    name: NorthstarStubs
+    runs-on: ubuntu-latest
+    container: docker.io/library/alpine:3.15.0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: |
+          apk add mingw-w64-gcc meson zip
+          meson setup --cross-file misc/mingw-w64-cross.txt --prefix / build
+          meson install -C build --destdir destdir
+
+      - name: Create zip
+        run: |
+          zip -9 -j NorthstarStubs.zip build/destdir/bin/*.dll 
+          sha1sum NorthstarStubs.zip
+          
+      - name: Create release
+        id: release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        with:
+          tag_name: ${{github.ref}}
+          release_name: ${{github.ref}}
+          draft: true
+          prerelease: false
+
+      - name: Upload release asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        with:
+          upload_url: ${{steps.release.outputs.upload_url}}
+          asset_path: ./NorthstarStubs.zip
+          asset_name: NorthstarStubs.zip
+          asset_content_type: application/zip
