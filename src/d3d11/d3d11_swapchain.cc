@@ -50,7 +50,7 @@ namespace dxvk {
       return S_OK;
     }
 
-    log("warn", str::format(__func__, " Unknown interface query ", riid));
+    DXVK_LOG_UNK_IFACE(riid);
     return E_NOINTERFACE;
   }
 
@@ -126,14 +126,14 @@ namespace dxvk {
 
   HRESULT STDMETHODCALLTYPE D3D11SwapChain::GetBackgroundColor(
           DXGI_RGBA*                pColor) {
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
 
   HRESULT STDMETHODCALLTYPE D3D11SwapChain::GetRotation(
           DXGI_MODE_ROTATION*       pRotation) {
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
@@ -141,7 +141,7 @@ namespace dxvk {
   HRESULT STDMETHODCALLTYPE D3D11SwapChain::GetRestrictToOutput(
           IDXGIOutput**             ppRestrictToOutput) {
     InitReturnPtr(ppRestrictToOutput);
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
@@ -194,7 +194,7 @@ namespace dxvk {
           REFIID                    refiid,
           void**                    ppUnk) {
     InitReturnPtr(ppUnk);
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
@@ -277,14 +277,14 @@ namespace dxvk {
 
 
   HANDLE STDMETHODCALLTYPE D3D11SwapChain::GetFrameLatencyWaitableObject() {
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return nullptr;
   }
 
 
   HRESULT STDMETHODCALLTYPE D3D11SwapChain::GetMatrixTransform(
           DXGI_MATRIX_3X2_F*        pMatrix) {
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return DXGI_ERROR_INVALID_CALL;
   }
 
@@ -309,7 +309,7 @@ namespace dxvk {
 
   HRESULT STDMETHODCALLTYPE D3D11SwapChain::SetMatrixTransform(
     const DXGI_MATRIX_3X2_F*        pMatrix) {
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return DXGI_ERROR_INVALID_CALL;
   }
 

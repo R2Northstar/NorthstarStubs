@@ -8,15 +8,12 @@
   #define DLLEXPORT __declspec(dllexport)
 #endif
 
-#include "com_guid.h"
 #include "com_object.h"
 #include "com_pointer.h"
 
 #include "log.h"
-
 #include "util_likely.h"
 #include "util_math.h"
-#include "util_string.h"
 
 #include <dxgi1_6.h>
 #include <d3d11_4.h>

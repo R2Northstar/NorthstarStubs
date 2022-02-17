@@ -27,7 +27,7 @@ namespace dxvk {
       return S_OK;
     }
 
-    log("warn", str::format(__func__, " Unknown interface query ", riid));
+    DXVK_LOG_UNK_IFACE(riid);
     return E_NOINTERFACE;
   }
 
@@ -40,7 +40,7 @@ namespace dxvk {
           UINT                SamplerOffset,
           ID3D11ClassInstance **ppInstance) {
     InitReturnPtr(ppInstance);
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
@@ -49,7 +49,7 @@ namespace dxvk {
           LPCSTR              pClassInstanceName,
           UINT                InstanceIndex,
           ID3D11ClassInstance **ppInstance) {
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 

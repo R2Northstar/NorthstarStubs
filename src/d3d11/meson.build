@@ -5,10 +5,7 @@ d3d11_res = [
 ]
 
 util_src = [
-  'com_guid.cc',
   'com_private_data.cc',
-  'log.cc',
-  'util_string.cc',
 ]
 
 dxgi_src = [

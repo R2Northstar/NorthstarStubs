@@ -30,7 +30,7 @@ namespace dxvk {
       return S_OK;
     }
 
-    log("warn", str::format(__func__, " Unknown interface query ", riid));
+    DXVK_LOG_UNK_IFACE(riid);
     return E_NOINTERFACE;
   }
 

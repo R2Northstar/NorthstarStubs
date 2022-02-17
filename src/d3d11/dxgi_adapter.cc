@@ -44,7 +44,7 @@ namespace dxvk {
       return S_OK;
     }
 
-    log("warn", str::format(__func__, " Unknown interface query ", riid));
+    DXVK_LOG_UNK_IFACE(riid);
     return E_NOINTERFACE;
   }
 
@@ -100,7 +100,7 @@ namespace dxvk {
     if (pDesc == nullptr)
       return E_INVALIDARG;
 
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
@@ -109,7 +109,7 @@ namespace dxvk {
     if (pDesc == nullptr)
       return E_INVALIDARG;
 
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
@@ -119,7 +119,7 @@ namespace dxvk {
     if (pDesc == nullptr)
       return E_INVALIDARG;
 
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
@@ -135,7 +135,7 @@ namespace dxvk {
      && MemorySegmentGroup != DXGI_MEMORY_SEGMENT_GROUP_NON_LOCAL)
       return E_INVALIDARG;
 
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 

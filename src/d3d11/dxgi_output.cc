@@ -36,7 +36,7 @@ namespace dxvk {
       return S_OK;
     }
 
-    log("warn", str::format(__func__, " Unknown interface query ", riid));
+    DXVK_LOG_UNK_IFACE(riid);
     return E_NOINTERFACE;
   }
 
@@ -53,7 +53,7 @@ namespace dxvk {
     if (!pModeToMatch || !pClosestMatch)
       return DXGI_ERROR_INVALID_CALL;
 
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
@@ -71,7 +71,7 @@ namespace dxvk {
     if ((pModeToMatch->Width == 0) ^ (pModeToMatch->Height == 0))
       return DXGI_ERROR_INVALID_CALL;
 
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
@@ -80,7 +80,7 @@ namespace dxvk {
     if (pDesc == nullptr)
       return DXGI_ERROR_INVALID_CALL;
 
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
@@ -90,7 +90,7 @@ namespace dxvk {
     if (pDesc == nullptr)
       return DXGI_ERROR_INVALID_CALL;
 
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
@@ -132,31 +132,31 @@ namespace dxvk {
     if (pNumModes == nullptr)
       return DXGI_ERROR_INVALID_CALL;
 
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
 
   HRESULT STDMETHODCALLTYPE DxgiOutput::GetDisplaySurfaceData(IDXGISurface* pDestination) {
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
 
   HRESULT STDMETHODCALLTYPE DxgiOutput::GetFrameStatistics(DXGI_FRAME_STATISTICS* pStats) {
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
 
   HRESULT STDMETHODCALLTYPE DxgiOutput::GetGammaControl(DXGI_GAMMA_CONTROL* pArray) {
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
 
   HRESULT STDMETHODCALLTYPE DxgiOutput::GetGammaControlCapabilities(DXGI_GAMMA_CONTROL_CAPABILITIES* pGammaCaps) {
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
@@ -166,13 +166,13 @@ namespace dxvk {
 
 
   HRESULT STDMETHODCALLTYPE DxgiOutput::SetDisplaySurface(IDXGISurface* pScanoutSurface) {
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
 
   HRESULT STDMETHODCALLTYPE DxgiOutput::GetDisplaySurfaceData1(IDXGIResource* pDestination) {
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
@@ -226,7 +226,7 @@ namespace dxvk {
           DXGI_FORMAT EnumFormat,
           IUnknown*   pConcernedDevice,
           UINT*       pFlags) {
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return DXGI_ERROR_UNSUPPORTED;
   }
 

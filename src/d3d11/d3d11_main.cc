@@ -31,7 +31,7 @@ extern "C" {
     }
 
     if (flId == FeatureLevels) {
-      log("err", "D3D11CoreCreateDevice: Requested feature level not supported");
+      DXVK_LOG_FUNC("err", "Requested feature level not supported");
       return E_INVALIDARG;
     }
 
@@ -76,19 +76,19 @@ extern "C" {
       hr = (new DxgiFactory(0))->QueryInterface(__uuidof(IDXGIFactory), reinterpret_cast<void**>(&dxgiFactory));
 
       if (FAILED(hr)) {
-        log("err", "D3D11CreateDevice: Failed to create a DXGI factory");
+        DXVK_LOG_FUNC("err", "Failed to create a DXGI factory");
         return hr;
       }
 
       hr = dxgiFactory->EnumAdapters(0, &dxgiAdapter);
 
       if (FAILED(hr)) {
-        log("err", "D3D11CreateDevice: No default adapter available");
+        DXVK_LOG_FUNC("err", "No default adapter available");
         return hr;
       }
     } else {
       if (FAILED(dxgiAdapter->GetParent(__uuidof(IDXGIFactory), reinterpret_cast<void**>(&dxgiFactory)))) {
-        log("err", "D3D11CreateDevice: Failed to query DXGI factory from DXGI adapter");
+        DXVK_LOG_FUNC("err", "Failed to query DXGI factory from DXGI adapter");
         return E_INVALIDARG;
       }
 
@@ -110,7 +110,7 @@ extern "C" {
       hr = dxgiFactory->CreateSwapChain(device.ptr(), &desc, ppSwapChain);
 
       if (FAILED(hr)) {
-        log("err", "D3D11CreateDevice: Failed to create swap chain");
+        DXVK_LOG_FUNC("err", "Failed to create swap chain");
         return hr;
       }
     }
@@ -146,7 +146,7 @@ extern "C" {
           ID3D11Device**        ppDevice,
           D3D_FEATURE_LEVEL*    pFeatureLevel,
           ID3D11DeviceContext** ppImmediateContext) {
-    dxvk::log("d3d11", "initializing d3d11 stub for northstar (github.com/R2Northstar/NorthstarStubs)");
+    DXVK_LOG("D3D11CreateDevice", "initializing d3d11 stub for northstar (github.com/R2Northstar/NorthstarStubs)");
 
     return D3D11InternalCreateDeviceAndSwapChain(
       pAdapter, DriverType, Software, Flags,

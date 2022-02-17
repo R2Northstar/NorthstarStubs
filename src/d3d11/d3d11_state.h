@@ -2,7 +2,6 @@
 
 #include <unordered_map>
 #include <mutex>
-#include <thread>
 
 #include "d3d11_blend.h"
 #include "d3d11_depth_stencil.h"

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <atomic>
+
 #include "com_private_data.h"
 #include "d3d11_include.h"
 

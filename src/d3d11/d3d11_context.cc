@@ -37,7 +37,7 @@ namespace dxvk {
       return S_OK;
     }
 
-    log("warn", str::format(__func__, " Unknown interface query ", riid));
+    DXVK_LOG_UNK_IFACE(riid);
     return E_NOINTERFACE;
   }
 
@@ -849,7 +849,7 @@ namespace dxvk {
     auto shader = static_cast<D3D11GeometryShader*>(pShader);
 
     if (NumClassInstances != 0)
-      log("err", "D3D11: Class instances not supported");
+      DXVK_LOG("err", "Class instances not supported");
 
     if (m_state.gs.shader != shader) {
       m_state.gs.shader = shader;

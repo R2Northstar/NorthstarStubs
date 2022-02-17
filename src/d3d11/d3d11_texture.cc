@@ -148,14 +148,14 @@ namespace dxvk {
   HRESULT STDMETHODCALLTYPE D3D11DXGISurface::GetDC(
           BOOL                    Discard,
           HDC*                    phdc) {
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return DXGI_ERROR_INVALID_CALL;
   }
 
 
   HRESULT STDMETHODCALLTYPE D3D11DXGISurface::ReleaseDC(
           RECT*                   pDirtyRect) {
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return DXGI_ERROR_INVALID_CALL;
   }
 
@@ -217,7 +217,7 @@ namespace dxvk {
        return S_OK;
     }
 
-    log("warn", str::format(__func__, " Unknown interface query ", riid));
+    DXVK_LOG_UNK_IFACE(riid);
     return E_NOINTERFACE;
   }
 
@@ -295,7 +295,7 @@ namespace dxvk {
        return S_OK;
     }
 
-    log("warn", str::format(__func__, " Unknown interface query ", riid));
+    DXVK_LOG_UNK_IFACE(riid);
     return E_NOINTERFACE;
   }
 
@@ -382,7 +382,7 @@ namespace dxvk {
        return S_OK;
     }
 
-    log("warn", str::format(__func__, " Unknown interface query ", riid));
+    DXVK_LOG_UNK_IFACE(riid);
     return E_NOINTERFACE;
   }
 

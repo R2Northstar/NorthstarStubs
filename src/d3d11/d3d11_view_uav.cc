@@ -38,7 +38,7 @@ namespace dxvk {
       return S_OK;
     }
 
-    log("warn", str::format(__func__, " Unknown interface query ", riid));
+    DXVK_LOG_UNK_IFACE(riid);
     return E_NOINTERFACE;
   }
 
@@ -158,9 +158,7 @@ namespace dxvk {
       } return S_OK;
 
       default:
-        log("err", str::format(
-          "D3D11: Unsupported dimension for unordered access view: ",
-          resourceDim));
+        DXVK_LOG("err", "Unsupported dimension for unordered access view: %d", resourceDim);
         return E_INVALIDARG;
     }
   }

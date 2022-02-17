@@ -723,7 +723,7 @@ namespace dxvk {
     desc.ContextType = D3D11_CONTEXT_TYPE_ALL;
 
     if (desc.Query != D3D11_QUERY_OCCLUSION_PREDICATE) {
-      log("warn", str::format("D3D11: Unhandled predicate type: ", pPredicateDesc->Query));
+      DXVK_LOG("warn", "Unhandled predicate type: %d", pPredicateDesc->Query);
       return E_INVALIDARG;
     }
 
@@ -740,7 +740,7 @@ namespace dxvk {
           ID3D11Counter**             ppCounter) {
     InitReturnPtr(ppCounter);
 
-    log("err", str::format("D3D11: Unsupported counter: ", pCounterDesc->Counter));
+    DXVK_LOG("err", "Unsupported counter: %d", pCounterDesc->Counter);
     return E_INVALIDARG;
   }
 
@@ -823,7 +823,7 @@ namespace dxvk {
           REFIID                      ReturnedInterface,
           void**                      ppFence) {
     InitReturnPtr(ppFence);
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
@@ -853,7 +853,7 @@ namespace dxvk {
           REFIID      ReturnedInterface,
           void**      ppResource) {
     InitReturnPtr(ppResource);
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
@@ -863,7 +863,7 @@ namespace dxvk {
           REFIID      ReturnedInterface,
           void**      ppResource) {
     InitReturnPtr(ppResource);
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
@@ -874,7 +874,7 @@ namespace dxvk {
           REFIID      returnedInterface,
           void**      ppResource) {
     InitReturnPtr(ppResource);
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
@@ -884,7 +884,7 @@ namespace dxvk {
           REFIID      ReturnedInterface,
           void**      ppFence) {
     InitReturnPtr(ppFence);
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return E_NOTIMPL;
   }
 
@@ -1094,7 +1094,7 @@ namespace dxvk {
     if (riid == GUID{0xd56e2a4c,0x5127,0x8437,{0x65,0x8a,0x98,0xc5,0xbb,0x78,0x94,0x98}})
       return E_NOINTERFACE;
 
-    log("warn", str::format(__func__, " Unknown interface query ", riid));
+    DXVK_LOG_UNK_IFACE(riid);
     return E_NOINTERFACE;
   }
 
@@ -1166,7 +1166,7 @@ namespace dxvk {
 
     // We don't support shared resources
     if (NumSurfaces && pSharedResource)
-      log("err", "D3D11: CreateSurface: Shared surfaces not supported");
+      DXVK_LOG("err", "CreateSurface: Shared surfaces not supported");
 
     // Try to create the given number of surfaces
     uint32_t surfacesCreated = 0;
@@ -1296,7 +1296,7 @@ namespace dxvk {
 
 
   HRESULT STDMETHODCALLTYPE D3D11DXGIDevice::EnqueueSetEvent(HANDLE hEvent) {
-    log("stub", __func__);
+    DXVK_LOG_STUB();
     return DXGI_ERROR_UNSUPPORTED;
   }
 
